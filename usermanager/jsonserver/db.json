@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "name": "OuYanghaoo",
+      "phone": "17771454809",
+      "email": "ouyanghaobbb@foxmail.com",
+      "id": 1
+    },
+    {
+      "name": "Humin",
+      "phone": "13624168950",
+      "email": "humin19980425@foxmail.com",
+      "id": 2
+    },
+    {
+      "name": "ZhangZhengke",
+      "phone": "15620328950",
+      "email": "520326987@qq.com",
+      "id": 3,
+      "age": 21,
+      "companyId": 3
+    },
+    {
+      "name": "LinFangchao",
+      "phone": "12035984023",
+      "email": "85032035940@qq.com",
+      "id": 5
+    },
+    {
+      "name": "Tanyuan",
+      "phone": "15205980235",
+      "email": "203259503@qq.com",
+      "id": 6
+    },
+    {
+      "name": "YaoZhijie",
+      "phone": "12035895034",
+      "email": "53026980@qq.com",
+      "id": 7
+    },
+    {
+      "name": "Shujin",
+      "phone": "15620325698",
+      "email": "85602347@qq.com",
+      "id": 8
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "Apple",
+      "description": "Apple is good!"
+    },
+    {
+      "id": 2,
+      "name": "Microsoft",
+      "description": "Microsoft is good!"
+    },
+    {
+      "id": 3,
+      "name": "Google",
+      "description": "Google is good!"
+    }
+  ]
+}
