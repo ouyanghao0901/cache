@@ -1,0 +1,141 @@
+<% var obj={pageTitle:"学生列表"}%>
+
+{{include "../header.html" obj}}
+
+<div class="container">
+    <div class="page-header">
+        <h2 class="text-center text-primary">用户列表</h2>
+    </div>
+
+    <form action="/stu_h1802/queryByList" method="GET" class="form-inline" style="margin: 5px 0">
+        <div class="form-group">
+            <label for="#" class="control-label">学号</label>
+            <input type="text" name="s_id" class="form-control" placeholder="请输入学号查询">
+        </div>
+        <div class="form-group">
+            <label for="#" class="control-label">姓名</label>
+            <input type="text" name="s_name" class="form-control" placeholder="请输入姓名查询">
+        </div>
+        <div class="form-group">
+            <label for="#" class="control-label">性别</label>
+            <select name="s_sex" class="form-control">
+                <option value="">-请选择-</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-submit-loading">
+                <span class="glyphicon glyphicon-search"></span>查询
+                </buttot>
+        </div>
+    </form>
+
+
+    <div class="btn-group btn-group-sm" style="margin-bottom: 5px">
+        <a href="/stu_h1802/addStu" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>新增学生
+        </a>
+        <button type="button" class="btn btn-danger btn-delete-checked">
+            <span class="glyphicon glyphicon-trash"></span>批量删除
+        </button>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <tr class="text-center" style="font-weight: bold">
+                <td>
+                    <label for="#ckAll">
+                        <input type="checkbox" id="ckAll">全选
+                    </label>
+                </td>
+                <td>学号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>QQ</td>
+                <td>学校</td>
+                <td>专业</td>
+                <td>学历</td>
+                <td>操作</td>
+            </tr>
+            {{each listData item index}}
+            <tr>
+                <td>
+                    <input type="checkbox" name="ck" id="" value="{{item.s_id}}">
+                </td>
+                <td>{{item.s_id}}</td>
+                <td>{{item.s_name}}</td>
+                <td>{{item.s_sex}}</td>
+                <td>{{item.s_age}}</td>
+                <td>{{item.s_qq}}</td>
+                <td>{{item.s_school}}</td>
+                <td>{{item.s_major}}</td>
+                <td>{{item.s_education}}</td>
+                <td>
+                    <div class="btn-group btn-group-xs">
+                        <a href="/stu_h1802/editStudent?s_id={{item.s_id}}" type="button" class="btn btn-warning">编辑</a>
+                        <button type="button" class="btn btn-danger btn-delete" data-s_id="{{item.s_id}}">删除</button>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <!-- 分页 -->
+        <ul class="pagination pull-right">
+            <%for(var i=1;i<=pageCount;i++){%>
+            {{if pageIndex==i}}
+            <li class="active"><a href="/stu_h1802/queryByList?pageIndex={{i}}">{{i}}</a></li>
+            {{else}}
+            <li><a href="/stu_h1802/queryByList?pageIndex={{i}}">{{i}}</a></li>
+            {{/if}}
+
+            <%}%>
+        </ul>
+    </div>
+</div>
+<style type="text/css">
+    table tr td:first-child,
+    table tr td:last-child {
+        text-align: center;
+    } 
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".btn-delete").click(function () {
+            if (confirm("确定删除咩?")) {
+                //根据学号删除记录  学号是主键
+                var s_id = $(this).data("s_id");
+                $.get("/stu_h1802/deleteById?s_id=" + s_id, function (data) {
+                    var jsonObj = JSON.parse(data);
+                    console.log(jsonObj);
+                    jsonObj.status == "success" ? location.reload() : alert(jsonObj.msg);
+                })
+            }
+        });
+
+
+        //批量删除
+        $(".btn-delete-checked").click(function () {
+            if ($("input[name='ck']:checked").length > 0) {
+                if (confirm("确定要删除选中项咩?")) {
+                    var s_idArr = [];
+                    $("input[name='ck']:checked").each(function (index, item) {
+                        s_idArr.push($(this).val());
+                    });
+                    $.get("/stu_h1802/deleteByChecked?s_idArr=" + s_idArr.join("-"), function (data) {
+                        // console.log(data);
+                        var jsonObj = JSON.parse(data);
+                        // console.log(jsonObj);
+                        jsonObj.status == "success" ? location.reload() : alert(jsonObj.msg);
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+{{include "../footer.html"}}
+
+

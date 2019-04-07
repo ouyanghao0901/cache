@@ -1,0 +1,69 @@
+<% var obj={pageTitle:"新增学生"}%>
+
+{{include "../header.html" obj}}
+
+<div class="container">
+    <div class="page-header">
+        <h2 class="text-center text-primary">新增学生</h2>
+    </div>
+    
+
+    <form action="/stu_h1802/doAddStu" method="POST" enctype="application/x-www-form-urlencoded" class="form-horizontal">
+
+        {{each objArr item index}}
+
+        <%var obj = {item:item}%>
+
+        {{if item[1]=="性别"}}
+
+        {{include "../bs_views/form-group-select.html" obj}}
+
+        {{else}}
+
+        {{include "../bs_views/form-group-input.html" obj}}
+
+        {{/if}}
+
+        {{/each}}
+
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-4">
+                <button type="submit" class="btn btn-primary btn-submit-loading">保存数据</button>
+                <a href="/stu_h1802/stuList" class="btn btn-primary">返回列表</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("div>input").addTips();
+
+        // $("[data-reg]").blur(function () {
+        //     var text = $(this).data("reg");
+        //     var reg = new RegExp(text);
+        //     var val = $(this).val().trim();
+        //     if (val == null || val == undefined || val == "") {
+        //         return;
+        //     }
+        //     if (!reg.test(val)) {
+        //         $(this).parents(".form-group").addClass("has-error");
+        //         $(this).parent().next().removeClass("text-hide");
+        //     } else {
+        //         $(this).parents(".form-group").removeClass("has-error");
+        //         $(this).parent().next().addClass("text-hide");
+        //     }
+        // });
+
+        $("[name='s_id']").blur(function () {
+            var s_id = $(this).val().trim();
+            if (s_id != null && s_id != undefined && s_id != "") {
+                $.get("checkS_id", { s_id }, function (data) {
+                    if (data == "1") {
+                        alert("学号已存在");
+                    }
+                })
+            }
+        });
+    });
+</script>
+{{include "../footer.html"}}

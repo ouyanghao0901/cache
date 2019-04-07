@@ -1,0 +1,45 @@
+
+<%var obj = {pageTitle:"登录系统"}%>
+
+{{include "../header.html" obj}}
+
+<div class="container">
+    <div class="page-header">
+        <h2 class="text-center text-primary">登录系统</h2>
+    </div>
+    <form  action="/stu_h1802/checkLogin" method="POST" enctype="application/x-www-form-urlencoded" class="col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <input type="text" name="s_id"  class="form-control" data-lable="用户名" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </div>
+                <input type="password" name="s_qq" id="" class="form-control" data-lable="密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block btn-submit-loading" type="submit" id="btnLogin">登录</button>
+        </div>
+    </form>
+</div>
+<style type="text/css">
+    body{
+        background-image: url("../../public/images/tower.png");
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $("input.form-control").addTips();
+    });
+</script>
+{{include "../footer.html"}}

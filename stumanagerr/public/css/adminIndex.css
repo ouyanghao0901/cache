@@ -1,0 +1,46 @@
+* {
+  user-select: none;
+}
+.center {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.center > .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #ebebeb;
+  padding: 0;
+}
+
+.center > .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+[data-toggle]:hover {
+  cursor: pointer;
+}
+
+.list-group-item {
+  padding: 0;
+}
+
+.list-group-item-text {
+  height: 30px;
+  line-height: 30px;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.badge {
+  background-color: tomato;
+}

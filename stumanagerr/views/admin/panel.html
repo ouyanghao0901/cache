@@ -1,0 +1,32 @@
+<div class="panel-group" id="menu">
+    <!-- 根据menuConfig自动生成菜单 -->
+    {{each menuConfig _item index}}
+    <div class="list-group panel">
+        <div class="list-group-item" data-target="#{{_item.id}}" data-toggle="collapse" data-parent="#menu">
+            <div class="list-group-item-header text-center">
+                <h4>{{_item.title}}</h4>
+            </div>
+        </div>
+        <div class="collapse" id="{{_item.id}}">
+            {{each _item.item subitem index}}
+            <div class="list-group-item">
+                <div class="list-group-item-text text-center">
+                    <a href="{{subitem.url}}" target="mainFrame">{{subitem.text}}</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+<script type="text/javascript">
+    $(function () {
+        $(".list-group-item a[href='#']").click(function () {
+            layer.msg("玩命开发中...");
+            return false;
+        });
+        // $(".list-group-item a").not("[href='#']").click(function () {
+        //     layer.load({ shade: [0.4, "#000"] });
+        // });
+    })
+</script>
