@@ -1,0 +1,26 @@
+<%var obj={pageTitle:'小米账号-登录'}%>
+{{include "../header.html" obj}}
+    <link rel="stylesheet" href="../../public/css/login.css" type="text/css">
+    <div class="bgbox">
+        <div class="loginbox container">
+            <form action="/user_info/checkLogin" method="GET" enctype="application/x-www-form-urlencoded"  class="col-sm-6 col-sm-offset-3">
+                <div class="logobox">
+                    <img src="../public/images/logo.png">
+                    <h3>小米账号登录</h3>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="user_id" class="form-control" autofocus placeholder="邮箱/手机号码/小米ID">
+                    <input type="password" name="user_pwd" class="form-control" placeholder="密码">
+                    <button type="submit" class="btn btn-block">登录</button>
+                    <p class="pull-left"><a href="/user_info/zhuce">立即注册</a></p>
+                    <p class="pull-right"><a href="javascript:;">忘记密码</a></p>
+                </div>
+                <div class="more">
+                    <p class="" style="margin-top: 40px; text-align: center">其他方式登录</p>
+                    <img src="../public/images/30c87d52119dbc4c9aff4c2c7f15ceee.png" alt="" style="margin-top: 10px">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{{include "../footer.html"}}

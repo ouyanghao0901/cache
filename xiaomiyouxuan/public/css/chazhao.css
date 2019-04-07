@@ -1,0 +1,55 @@
+.searchbox {
+    height: 70px;
+    width: 1080px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    z-index: 6;
+  }
+  
+  .searchbox > .logo2 {
+    width: 123px;
+  }
+  
+  .searchbox_box {
+    width: 281px;
+    height: 42px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 425px;
+  }
+  
+  .searchbox_box input {
+    border: 0;
+    outline: none;
+    width: 240px;
+  }
+  
+  .glyphicon-shopping-cart {
+    font-size: 18px;
+    margin-left: 20px;
+    color: black;
+  }
+  
+  .glyphicon-shopping-cart:hover{
+    color: #684b34;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  .searchbox.s{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .glyphicon-search:hover{
+    cursor: pointer;
+  }
+  
+  

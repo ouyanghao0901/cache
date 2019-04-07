@@ -1,0 +1,63 @@
+<div class="bnbox">
+    <ul class="bn_leftbox">
+        {{each result[0] item index}}
+        <li>
+            <a href="/goods_info/goodsMore?type_name={{ item.type_name }}">{{
+        item.type_name
+      }}</a>&nbsp;/&nbsp;
+            <a href="/goods_info/goodsMore?type_name={{ item.type_name }}">{{
+        item.type_name
+      }}</a>&nbsp;/&nbsp;
+            <a href="/goods_info/goodsMore?type_name={{ item.type_name }}">{{
+        item.type_name
+      }}</a>
+        </li>
+        {{/each}}
+    </ul>
+    <div class="bn_rightbox">
+        {{each result[0] item index}}
+        <%var typename=item.type_name%>
+        <div class="oybox">
+            <h4 style="padding-left: 10px">{{ item.type_name }}</h4>
+            {{each result[1] _item _index}}
+            {{if _item.type_name==typename}}
+            <a href="/goods_info/goodsDetail?goods_id={{ _item.goods_id }}" target="_blank" class="oybox_abox">
+                <img src="{{ _item.goods_img }}" alt="" />
+                <p>{{ _item.goods_jiancheng }}</p>
+            </a>
+            <a href="/goods_info/goodsDetail?goods_id={{ _item.goods_id }}" target="_blank" class="oybox_abox">
+                <img src="{{ _item.goods_img }}" alt="" />
+                <p>{{ _item.goods_jiancheng }}</p>
+            </a>
+            <a href="/goods_info/goodsDetail?goods_id={{ _item.goods_id }}" target="_blank" class="oybox_abox">
+                <img src="{{ _item.goods_img }}" alt="" />
+                <p>{{ _item.goods_jiancheng }}</p>
+            </a>
+            <a href="/goods_info/goodsDetail?goods_id={{ _item.goods_id }};" target="_blank" class="oybox_abox">
+                <img src="{{ _item.goods_img }}" alt="" />
+                <p>{{ _item.goods_jiancheng }}</p>
+            </a>
+            {{/if}}
+            {{/each}}
+        </div>
+        {{/each}}
+        <div class="rightbox_imgbox">
+            <img src="../../public/images/lbt1.jpg" alt="" />
+            <img src="../../public/images/lbt2.jpg" alt="" />
+            <img src="../../public/images/lbt3.jpg" alt="" />
+            <img src="../../public/images/lbt4.jpg" alt="" />
+            <img src="../../public/images/lbt5.jpg" alt="" />
+            <div class="dir" style="display: none">
+                <button class="dir-left">左</button>
+                <button class="dir-right">右</button>
+            </div>
+            <ul class="posi">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>

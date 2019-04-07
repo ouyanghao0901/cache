@@ -1,0 +1,36 @@
+<%var obj ={pageTitle:tj}%>
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/chazhaos.css" type="text/css">
+{{include "../nav.html"}}
+{{include "../chazhao.html"}}
+
+{{if result.length==0}}
+<img src="../../public/images/d16db87bb0b3eb1c9f7f8c067fe4e18.png" alt="" class="no">
+
+{{/if}}
+
+<div class="mainbox">
+    <p style="margin-top: 30px">为您找到<span style="color: #845F3F">{{result.length}}</span>条商品</p>
+    {{each result item index}}
+        <a href="/goods_info/goodsDetail?goods_id={{ item.goods_id }}" class="itembox">
+            <div>
+                <img src="{{item.goods_img}}" alt="">
+                <span style="margin-top: 20px">{{item.goods_name}}</span>
+                <span style="margin-top: 10px;color: #C90214">{{item.goods_price}}</span>
+            </div>
+        </a>
+
+    {{/each}}
+</div>
+
+
+
+
+
+
+
+
+{{include "../footer_img.html"}}
+{{include "../footer.html"}}
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>

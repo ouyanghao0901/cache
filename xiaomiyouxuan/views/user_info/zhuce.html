@@ -1,0 +1,25 @@
+<%var obj={pageTitle:'小米账号-注册'}%>
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/zhuce.css" type="text/css" />
+<div class="bgbox">
+    <div class="loginbox container">
+        <form method="GET" action="/user_info/doZhuce" class="col-sm-6 col-sm-offset-3">
+            <div class="logobox">
+                <img src="../public/images/logo.png" />
+                <h3>注册小米账号</h3>
+            </div>
+            <div class="inputBox">
+                <p style="font-size: 18px">账号</p>
+                <input type="text" name="user_id" class="form-control" autofocus placeholder="账号" />
+                <p class="tip" style="color: red;font-weight: bold;display: none;">
+                    账号已存在
+                </p>
+                <p style="font-size: 18px">密码</p>
+                <input type="password" name="user_pwd" class="form-control" placeholder="密码" />
+                <button type="submit" class="btn btn-block">立即注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{include "../footer.html"}}
+<script src="../../public/js/zhuce.js" type="text/javascript"></script>

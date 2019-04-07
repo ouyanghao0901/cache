@@ -1,0 +1,44 @@
+<%var obj={pageTitle:'小米有品'}%>
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/index.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css">
+{{include "../nav.html" }}
+{{include "../chazhao.html"}}
+{{include "./banner.html"}}
+<div class="" style="width: 1080px;margin: auto;margin-top:50px;">
+    {{each result[0] item index}}
+    <div class="title" style="margin-top: 50px">
+        <%var typeName=item.type_name%>
+        <p>{{ item.type_name }}</p>
+        <a href="/goods_info/goodsMore?type_name={{ item.type_name }}">更多...</a>
+    </div>
+    <div class="leibox">
+        {{each result[1] item index}}
+        {{if item.type_name==typeName}}
+        <a href="/goods_info/goodsDetail?goods_id={{ item.goods_id }}" class="abox">
+            <div class="itembox">
+                <img src="{{ item.goods_img }}" style="width: 55%" />
+                <p class="ms">{{ item.goods_miaoshu }}</p>
+                <div class="textbox">
+                    <p>{{ item.goods_youhui }}</p>
+                    <p>{{ item.goods_name }}</p>
+                    <p>{{ item.goods_price }}</p>
+                </div>
+            </div>
+        </a>
+        {{/if}}
+        {{/each}}
+    </div>
+    {{/each}}
+</div>
+<script src="../../public/js/index.js" type="text/javascript"></script>
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>
+{{include "../footer_img.html"}}
+{{include "../footer.html"}}
+<script>
+    $("i.glyphicon.glyphicon-search").click(function(){
+        $(".tj").click();
+    })
+</script>
+
+

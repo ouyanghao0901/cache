@@ -1,0 +1,19 @@
+.maindiv{
+    width: 1080px;
+    margin: auto;
+    margin-top: 50px;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #E7E7E7;
+    padding: 10px 0;
+}
+.title>div{
+    cursor: pointer;
+}
+.title>div:first-child{
+    color: #845F3F;
+    border-bottom: 2px solid #845F3F;
+}

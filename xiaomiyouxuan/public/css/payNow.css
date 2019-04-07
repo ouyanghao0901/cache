@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+.mainbox{
+    width: 1080px;
+    margin: auto;
+}
+
+.goods_info{
+    height: 90px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.num_box {
+    border: 1px solid #ebebeb;
+    display: inline-block;
+    margin-left: 305px;
+}
+
+.num_box>a {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: #CCCCCC;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.num_box>a:first-child {
+    border-right: 1px solid #ebebeb;
+}
+
+.num_box>a:last-child {
+    border-left: 1px solid #ebebeb;
+}
+
+.num_box input {
+    width: 60px;
+    border: 0;
+    outline: none;
+    text-align: center;
+}
+
+.footerbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-bottom: 1px solid #ebebeb;
+    padding: 75px 0 30px 0;
+}
+
+.footerbox>div{
+    padding: 10px 0;
+}
+
+.btnbox{
+    margin: 30px 0 100px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btnbox>a{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 55px;
+    display: block;
+    height: 55px;
+    width: 170px;
+    background-color: #845F3F;
+    transition: background-color .3s;
+    text-decoration: none;
+}
+.btnbox>a:hover{
+    background-color: #D1BFA6;
+    text-decoration: none;
+}
+
+.addressbox{
+    margin-top: 20px;
+    width: 255px;
+    height: 210px;
+    border:1px solid #cccccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.addressText{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #CCCCCC;
+}
+.addressbox:hover,
+.addressbox:hover>.addressText{
+    color: #845F3F;
+    border-color: #845F3F;
+}
+.tipimg{
+    cursor: pointer;
+    position: absolute;
+    display: none;
+    width: 660px;
+    height: 560px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.zz{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .4);
+}

@@ -1,0 +1,75 @@
+<%var obj ={pageTitle:"修改信息"}%>
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/changeinfo.css" type="text/css" />
+{{include "../nav.html"}}
+{{include "../chazhao.html"}}
+<div class="maindiv">
+    <div class="title">
+        <div>信息修改</div>
+        <div>我的订单</div>
+        <div>我的资产</div>
+        <div>地址管理</div>
+        <div>加入我们</div>
+    </div>
+    <form action="/user_info/upImg" method="POST" enctype="multipart/form-data" class="container form-horizontal">
+        <!-- <div class="form-group">
+            <label class="control-label col-xs-1 col-xs-offset-2">昵称</label>
+            <div class="col-xs-5">
+                <input type="text" name="user_name" class="form-control" value="{{userinfo.user_name}}">
+            </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <label class="control-label col-xs-1 col-xs-offset-2">头像</label>
+            <div>
+                <input type="file" name="user_photo" id="userPhoto" style="display: none" />
+                <img src="../../public/images/userphoto/上传.png" id="btnChooseFile"
+                    style="width: 100px;height: 100px;cursor: pointer;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-3">
+                <button class="btn btn-primary" type="submit">提交</button>
+            </div>
+        </div>
+    </form> -->
+</div>
+
+{{include "../footer_img.html"}}
+{{include "../footer.html"}}
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $(".title>div").click(function () {
+            $(this)
+                .stop()
+                .css("color", "#845F3F")
+                .css("border-bottom", "2px solid #845F3F")
+                .siblings()
+                .stop()
+                .css("color", "black")
+                .css("border-bottom", 0);
+        });
+        $("#btnChooseFile").click(function () {
+            $("#userPhoto").click();
+        });
+        $("#userPhoto").change(function () {
+            var that = this;
+            var file = this.files[0];
+            var reg = /^(image)\/(png|jpg|jpeg)$/;
+            if (reg.test(file.type)) {
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function (event) {
+                    var base = event.target.result;
+                    $(that)
+                        .next("img")
+                        .attr("src", base);
+                };
+            } else {
+                layer.msg("文件格式有误");
+                $(this).val("");
+            }
+        });
+    });
+</script>

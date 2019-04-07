@@ -1,0 +1,101 @@
+<%var name = result[0][0].goods_name %>
+<%var obj={pageTitle:name}%>
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/goodsDetail.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css">
+{{include "../nav.html"}}
+{{include "../chazhao.html"}}
+<div class="main_box">
+    <div class="left_box">
+        {{each result[3] item index}}
+        <img src="{{ item.goods_imgs }}" style="display: none" />
+        {{/each}}
+        <img src="{{ result[0][0].goods_img }}" class="showImg" />
+        <div class="imgs_box">
+            {{each result[3] item index}}
+            <img src="{{ item.goods_imgs }}" />
+            {{/each}}
+        </div>
+    </div>
+    <div class="right_box">
+        <div class="goods_name" style="font-size: 20px;">
+            {{ result[0][0].goods_name }}
+        </div>
+        <div class="right_box_center">
+            <div style="display: flex;flex-direction: row;align-items: center">
+                <h6 style="color:#333333;">售价</h6>
+                <span style="color: #C00000;font-size: 25px;padding-left: 30px">{{
+          result[0][0].goods_price
+        }}</span>
+                <span
+                    style="color: #CCCCCC;text-decoration: line-through;padding-left: 15px;">{{ result[0][0].goods_yuanjia }}</span>
+                <span
+                    style="background-color: #c00000;color: white;border-radius: 3px;font-size: 12px;padding: 2px 4px;margin-left: 10px">{{ result[0][0].goods_youhui }}</span>
+            </div>
+            <div>
+                <h6>
+                    服务<i class="glyphicon glyphicon-info-sign" style="color: #C00000;cursor: pointer;"></i>
+                </h6>
+                <div style="display: flex;flex-direction: column;padding-left: 35px">
+                    {{each result[2] item index}}
+                    <span style="padding: 5px 0"><i class="glyphicon glyphicon-ok-sign"
+                            style="color:#C00000 ;margin-right: 10px"></i>{{ item.goods_fuwu }}</span>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{if result[1][0].goods_xinghao!=null}}
+        <div class="guige_title">
+            <h6>规格</h6>
+            <div class="guige_box">
+                {{each result[1] item index}}
+                <div class="guige_box_item" style="cursor: pointer;margin-bottom: 10px">
+                    {{ item.goods_xinghao }}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        <div style="padding-left: 10px">
+            <h6>数量</h6>
+            <div class="num_box">
+                <a href="javascript:;" class="jian">--</a>
+                <input class="spsl" type="number" value="1" />
+                <a href="javascript:;" class="jia">+</a>
+            </div>
+        </div>
+        <div class="right_box_bottom">
+            <div class="pay_now">立即购买</div>
+            <div class="addgoods">加入购物车</div>
+            <div class="shoucang">
+                <i class="glyphicon glyphicon-star-empty" style="font-size: 16px"></i>
+                <p>收藏</p>
+            </div>
+            <div class="kf">
+                <i class="glyphicon glyphicon-headphones"></i>
+                <p>客服</p>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="form1" action="/goods_info/payNow" method="GET" style="display: none">
+    <input type="text" name="good_id" value="{{ result[0][0].goods_id }}" />
+    <input type="text" name="goods_img" value="{{ result[0][0].goods_img }}" />
+    <input type="text" name="goods_name" value="{{ result[0][0].goods_name }}" />
+    <input type="text" name="goods_price_num" value="{{ result[0][0].goods_price_num }}" />
+    <input type="text" name="goods_guige" value="" id="inpguige"/>
+    <input type="text" name="goods_num" value="1" />
+    <button type="submit" class="btn1"></button>
+</form>
+{{include "../footer_img.html"}}
+<script src="../../public/js/goodsDetail.js" type="text/javascript"></script>
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>
+<script>
+    
+</script>
+{{include "../footer.html"}}
+
+<style>
+
+
+</style>

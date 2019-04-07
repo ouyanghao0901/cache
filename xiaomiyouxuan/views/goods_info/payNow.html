@@ -1,0 +1,59 @@
+<%var obj={pageTitle:"结算-小米有品"}%>
+{{include "../header.html" obj}}
+{{include "../nav.html"}}
+<link rel="stylesheet" href="../../public/css/payNow.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css">
+{{include "../chazhao.html"}}
+<div class="mainbox">
+    <div>
+        <div style="font-size: 20px">收货地址</div>
+        <div class="addressbox">
+            <div class="addressText">
+                <p style="font-size: 20px;">十</p>
+                <p>添加新地址</p>
+            </div>
+        </div>
+    </div>
+    <img src="../../public/images/65e3a4ec701dd930b1200941601a87c.png" style="width: 100%" />
+
+    <div class="goods_info">
+        <img src="{{ items.goods_img }}" style="width: 50px;" />
+        <span style="margin-left: 30px;">{{ items.goods_name }}</span>
+        <span style="margin-left: 20px;">{{ items.goods_guige }}</span>
+        <div class="num_box">
+            <a href="javascript:;" class="jian">--</a>
+            <input class="spsl" type="number" value="{{ items.goods_num }}" />
+            <a href="javascript:;" class="jia">+</a>
+        </div>
+        <span style="margin-left: 150px"><span class="dj">{{ items.goods_price_num }}</span>元X<span
+                class="num">{{ items.goods_num }}</span></span>
+        <span class="zj" style="margin-left: 125px;color: #C00000">￥<%=items.goods_price_num*items.goods_num%></span>
+    </div>
+    <div class="footerbox">
+        <div>
+            <span style="margin-right: 20px;">商品总价:</span>
+            <span style="color: #C00000" class="zj">￥<%=items.goods_price_num*items.goods_num%>元</span>
+        </div>
+        <div>
+            <span style="margin-right: 20px">运费:</span>
+            <span style="color: #C00000">0.00元</span>
+        </div>
+        <div>
+            <span style="margin: 20px">优惠:</span>
+            <span style="color: #C00000">0.00元</span>
+        </div>
+        <div style="margin-top: 60px;font-size: 18px;">
+            <span>合计:</span>
+            <span style="color: #C00000" class="zj">￥<%=items.goods_price_num*items.goods_num%>元</span>
+        </div>
+    </div>
+    <div class="btnbox">
+        <a href="javascript:;">去下单</a>
+    </div>
+</div>
+<div class="zz"></div>
+<img src="../../public/images/1553333188(1).jpg" class="tipimg" />
+{{include "../footer_img.html"}}
+{{include "../footer.html"}}
+<script src="../../public/js/payNow.js" type="text/javascript"></script>
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>

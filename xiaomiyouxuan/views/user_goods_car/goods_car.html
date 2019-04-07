@@ -1,0 +1,44 @@
+<%var obj ={pageTitle:"购物车-小米有品"}%>
+
+{{include "../header.html" obj}}
+<link rel="stylesheet" href="../../public/css/goods_car.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/chazhao.css" type="text/css">
+{{include "../nav.html"}}
+
+{{include "../chazhao.html"}}
+<div class="mainbox">
+    <div class="titlebox">
+        <input type="checkbox" id="ckAll" checked>
+        <span style="padding-left: 15px">全选</span>
+        <span style="padding-left: 105px">商品信息</span>
+        <span style="padding-left: 265px">单价</span>
+        <span style="padding-left: 180px">数量</span>
+        <span style="padding-left: 175px">金额</span>
+        <span style="padding-left: 105px">操作</span>
+    </div>
+    {{each result item index}}
+    <div class="goodsbox">
+        <input type="checkbox" style="margin-left: 10px" class="ck" checked>
+        <img src="{{item.goods_img}}" alt="" height="65%" style="padding-left: 30px">
+        <p style="padding-left: 22px">{{item.goods_name}}</p>
+        <p style="padding-left: 15px">{{item.goods_xinghao}}</p>
+        <p style="position: absolute;left: 485px">￥{{item.goods_price}}</p>
+        <p style="position: absolute;left: 710px">{{item.goods_num}}</p>
+        <p class="jg" style="position: absolute;left: 900px;">￥<%=item.goods_price*item.goods_num%></p>
+        <p style="position: absolute;right: 30px;color: #999999;cursor: pointer;" data-del="{{item.id}}">X</p>
+    </div>
+    {{/each}}
+    <div class="bbox">
+        <h4 style="padding-left: 20px" >合计:</h4>
+        <h4 style="padding-left: 10px;color:#C00000 " class="hj"><span></span>元</h4>
+        <div class="jiesuan">
+            <h4>去结算</h4>
+        </div>
+    </div>
+
+</div>
+
+{{include "../footer_img.html"}}
+{{include "../footer.html"}}
+<script src="../../public/js/goods_car.js" type="text/javascript"></script>
+<script src="../../public/js/chazhao.js" type="text/javascript"></script>

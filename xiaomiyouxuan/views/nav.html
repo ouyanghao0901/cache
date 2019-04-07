@@ -1,0 +1,21 @@
+<div style="width: 100%;background-color: #333333;height: 50px;">
+    <div style="float: right;height: 100%;display: flex;flex-direction: row;align-items: center;padding-right: 60px">
+        {{if userinfo==undefined}}
+        <a href="/user_info/login" style="color: white;margin-right: 20px;">登录</a>
+        <a href="/user_info/zhuce" style="color: white;margin-right: 20px;">注册</a>
+        {{else}}
+        <a href="/user_info/changeinfo">
+            <img src="{{userinfo.user_photo}}" style="width: 30px;height: 30px;border-radius: 50%;margin-right: 10px">
+        </a>
+        <a href="javasrcipt:;" style="color: white;margin-right: 20px;">{{
+      userinfo.user_name
+    }}</a>
+        {{/if}}
+        <a href="javasrcipt:;" style="color: white;margin-right: 20px;">帮助中心</a>
+        <a href="javasrcipt:;" style="color: white;margin-right: 20px;">下载APP</a>
+        <a href="javasrcipt:;" style="color: white;margin-right: 20px">资质证照</a>
+        {{if userinfo!=undefined}}
+        <a href="/user_info/login" style="color: white;margin-right: 20px">退出登录</a>
+        {{/if}}
+    </div>
+</div>
