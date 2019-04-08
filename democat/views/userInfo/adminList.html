@@ -1,0 +1,28 @@
+<%var obj ={pageTitle:"管理员列表"}%>
+
+{{include "../header.html" obj}}
+
+<div class="container">
+    <div class="page-header">
+        <h4 class="text-center text-primary">管理员列表</h4>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <tr style="font-weight: bold">
+                <td>账号</td>
+                <td>性别</td>
+                <td>姓名</td>
+            </tr>
+            {{each adminList item index}}
+            <tr>
+                <td>{{ item.admin_id }}</td>
+                <td>{{ item.admin_sex }}</td>
+                <td>{{ item.admin_name }}</td>
+            </tr>
+
+            {{/each}}
+        </table>
+    </div>
+</div>
+
+{{include "../footer.html"}}

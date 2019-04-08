@@ -1,0 +1,46 @@
+<%var obj = {pageTitle:"编辑影厅"}%>
+{{include "../header.html" obj}}
+<div class="container">
+    <div class="page-headr">
+        <h4 class="text-center text-primary">编辑影厅</h4>
+    </div>
+    <form action="/hallInfo/doEditHall" class="form-horizontal">
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">影厅编号</label>
+            <div class="col-sm-7">
+                <input type="text" name="hall_id" id="" class="form-control" value="{{hallList.hall_id}}" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">影厅名称</label>
+            <div class="col-sm-7">
+                <input type="text" name="hall_name" id="" class="form-control" value="{{hallList.hall_name}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">影厅座位</label>
+            <div class="col-sm-7">
+                <input type="number" name="hall_seat" id="" class="form-control" value="{{hallList.hall_seat}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">影厅类型</label>
+            <div class="col-sm-7">
+                <select name="hall_type" id="" class="form-control">
+                    <option value="2D" {{if hallList.hall_type=="2D"}}selected{{/if}}>2D</option>
+                    <option value="3D" {{if hallList.hall_type=="3D"}}selected{{/if}}>3D</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button class="btn btn-primary" type="submit">提交数据</button>
+                <a href="/hallInfo/hallList" class="btn btn-primary">返回列表</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{{include "../footer.html"}}

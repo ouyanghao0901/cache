@@ -1,0 +1,101 @@
+<% var obj = {pageTitle:"登录"}%>
+
+{{include "../header.html" obj}}
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    body {
+        background-image: url(../../public/images/sy.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+
+    .container1 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .login-box {
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-box .login-type-user,
+    .login-box .login-type-code {
+        position: absolute;
+        left: 0;
+        top: 100px;
+    }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="" class="navbar-brand">XX影院</a>
+        </div>
+    </div>
+</nav>
+<div class="container container1" style="margin-top: 50px">
+    <div class="login-box">
+        <ul class="nav nav-tabs nav-justified col-sm-6 login-type" style="margin-top: 50px">
+            <li><a href="#">扫码登录</a></li>
+            <li  class="active"><a href="">密码登录</a></li>
+        </ul>
+        <div class="login-type-code col-sm-6 col-sm-offset-3" style="text-align: center;margin-top: 50px"></div>
+        <div class="login-type-user">
+            <form action="/userInfo/checkLogin" method="GET" class="col-sm-6 col-sm-offset-3">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        <input type="text" name="admin_id" id="" class="form-control" placeholder="请输入账号..." autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </div>
+                        <input type="password" name="admin_pwd" id="" class="form-control" placeholder="请输入密码...">
+                    </div>
+                </div>
+                <div>
+                    <a href="/userInfo/noPwd" class="pull-left">忘记密码</a>
+                    <a href="/userInfo/zhuce" class="pull-right">我要注册</a>
+                </div>
+                <div class="form-group" style="margin-top: 50px">
+                    <button type="submit" class="btn btn-block btn-primary">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".login-type>li").click(function () {
+            if ($(this).hasClass("active")) {
+                return;
+            }
+            $(".login-type>li.active").removeClass("active").siblings().addClass("active");
+            var index = $(".login-type>li.active").index();
+            $(".login-box>div").eq(index).show().siblings("div").hide();
+            // console.log(index)
+        });
+
+        $("a[href='#']").click(function(){
+            layer.msg("玩命开发中");
+        })
+    })
+</script>
+
+{{include "../footer.html"}}

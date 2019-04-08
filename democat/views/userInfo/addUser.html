@@ -1,0 +1,80 @@
+<% var obj = {pageTitle:"新增用户"}%>
+
+{{include "../header.html" obj}}
+
+<div class="container">
+    <div class="page-header">
+        <h4 class="text-center text-primary">新增用户</h4>
+    </div>
+    <form action="/userInfo/doAddUser" method="GET" class="form-horizontal">
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">账号:</label>
+            <div class="col-sm-7">
+                <input type="text" name="admin_id" id="admin_id" class="form-control" placeholder="请输入账号..." />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">密码:</label>
+            <div class="col-sm-7">
+                <input type="text" name="admin_pwd" id="" class="form-control" placeholder="请输入密码..." />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">姓名:</label>
+            <div class="col-sm-7">
+                <input type="text" name="admin_name" id="" class="form-control" placeholder="请输入姓名..." />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">权限:</label>
+            <div class="col-sm-7">
+                <select name="role" id="" class="form-control">
+                    <option value="admin">管理员</option>
+                    <option value="user" selected>普通用户</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">性别:</label>
+            <div class="col-sm-7">
+                <select name="admin_sex" id="" class="form-control">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">提交数据</button>
+                <a href="/userInfo/userList" class="btn btn-primary">返回列表</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        // $("[type='submit']").click(function () {
+        //     $("[type='text']").each((index, iten) => {
+        //         var v = $(this).val().trim();
+        //         if (v == "" || v == undefined || v == null) {
+        //             alert("信息不能为空");
+
+        //         };
+        //     });
+        // })
+
+        $("#admin_id").blur(function () {
+            var admin_id = $(this)
+                .val()
+                .trim();
+            $.get("/userInfo/checkAdminId?admin_id=" + admin_id, function (data) {
+                if (data == "yes") {
+                    alert("账号已存在");
+                }
+            });
+        });
+    });
+</script>
+
+{{include "../footer.html"}}
