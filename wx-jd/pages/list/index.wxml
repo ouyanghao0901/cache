@@ -1,0 +1,23 @@
+<view class='prolist'>
+    <block wx:for="{{prolist}}">
+        <view class='prolist_item'>
+            <view class='prolist_cover'>
+                <image src='{{item.cover}}'></image>
+            </view>
+            <view class='prolist_info'>
+                <view class='prolist_title'>
+                    <text>{{item.title}}</text>
+                </view>
+                <view class='prolist_price'>
+                    <text>RMB: {{item.price}}</text>
+                </view>
+                <view class='prolist_other'> 
+                    <text class='prolist_comment'>{{item.comment}}条评价</text>
+                </view>
+            </view>
+        </view> 
+    </block> 
+    <view class='endview' wx:if="{{noData}}">
+        <text>没有更多数据</text>
+    </view>
+</view>  

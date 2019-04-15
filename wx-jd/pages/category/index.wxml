@@ -1,0 +1,26 @@
+<view class="caregory">
+    <!-- 左侧 -->
+    <scroll-view class='nav_left' scroll-y>
+        <block wx:for="{{navLeftItem}}">
+            <view bindtap='swichRightTab' data-index='{{index}}' class='nav_left_items {{curIndex == index?"nav_left_item-active":""}}'>{{item}}</view>
+        </block>
+    </scroll-view>
+    <!-- 右侧 -->
+    <scroll-view class='nav_right' scroll-y>
+        <view wx:if="{{navRightItem[curIndex]}}">
+            <block wx:for="{{navRightItem[curIndex]}}" wx:for-item="item">
+                <view class='jd-category'>
+                    <view class='title'>{{item.title}}</view>
+                    <view class='jd-category-wrap'>
+                        <block wx:for="{{item.desc}}" wx:for-item="list">
+                            <view class='jd-category-style' bindtap='showListView' data-txt='{{list.text}}'>
+                                <image class='list_img' src='{{list.img}}'/>
+                                <text class='list_text'>{{list.text}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>
